@@ -1,13 +1,16 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const NodeCache = require('node-cache');
 
 const app = express();
 const cache = new NodeCache({ stdTTL: 600 }); // Cache TTL: 10 minutes
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Weather API Base URL
-const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast';
+// const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast';
+const WEATHER_API_URL = process.env.WEATHER_API_URL;
+console.log({ WEATHER_API_URL })
 
 // Helper function to fetch weather data from the API
 const fetchWeatherData = async (latitude, longitude, start, end) => {

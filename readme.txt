@@ -1,3 +1,9 @@
+//env file
+PORT=8000
+WEATHER_API_URL = https://api.open-meteo.com/v1/forecast
+
+
+
 //sample query foro fetching weather data
 
 latitude=35.6895
